@@ -1,5 +1,7 @@
+
 #include<iostream>
 #include<fstream>
+#include<cstdlib>
 using namespace std;
 #include<string>
 class bank{
@@ -19,8 +21,7 @@ public:
             ba=ba-wr;
             cout<<"THE AMOUNT IS WITHDRAWN "<<endl;
             r=ba;
-            cout<<"THE BALANCE IS :";
-            cout<<ba;
+            cout<<"THE BALANCE IS :"<<ba<<endl;
             return ba;
         }
     }
@@ -30,8 +31,8 @@ public:
         cin>>dp;
         r=r+dp;
         
-        cout<<"THE BALANCE IS :"<<endl;
-        cout<<r;
+        cout<<"THE BALANCE IS :"<<r<<endl;
+        
         return r;
         
     }
@@ -64,9 +65,16 @@ int main(){
             
             string username, password;
             int balance;
+            long long int accno;
             
             cout << "Registration: " << endl;
             cout << endl;
+            accno=rand();
+            cout<<"this is your account no:"<<accno<<endl;
+            string acc=to_string(accno);
+            
+            
+            
             cout << "Select a username: ";
             cin >> username;
             cout << "Select a password: ";
@@ -75,7 +83,7 @@ int main(){
             cin>>balance;
             ofstream file1;
             file1.open(username + ".txt");
-            file1 << username << endl << password<<endl<<balance;
+            file1 << acc << endl << password<<endl<<username<<endl<<balance;
             file1.close();
             while (q=="y"){
                 cout << "Welcome " << username  << endl;
@@ -112,18 +120,21 @@ int main(){
         }
         else if(a==2){
             while(q=="y"){
-                string username, password;
-                string un, pw,jj;// comparison strings
+                string username, password,vv;
+                string un, pw,jj,qq;// comparison strings
                 int ba;
                 
-                cout << "Enter a username: ";
+                cout << "Enter a accno: ";
                 cin >> username;
+                cout<<"Enter username:";
+                cin>>vv;
                 cout << "Enter a password: ";
                 cin >> password;
                 
-                ifstream read(username + ".txt"); // ifstream reads a file
-                getline(read, un); // reads the username
+                ifstream read(vv + ".txt"); // ifstream reads a file
+                getline(read, un); // reads the account no
                 getline(read, pw);//reads the password
+                getline(read,qq);//reads the username
                 getline(read, jj);// reads the balance
                 
                 
@@ -140,7 +151,7 @@ int main(){
                 }
                 else{
                     cout<<"LOGGED IN"<<endl;
-                    cout << "Welcome " << username  << endl;
+                    cout << "Welcome " << qq  << endl;
                     cout<<"----------------------------------------------------------------------------------------------------"<<endl;
                     
                     ba=stoi(jj);
@@ -187,4 +198,3 @@ int main(){
     return 0;
         
     }
-
