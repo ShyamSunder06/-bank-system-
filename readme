@@ -1,0 +1,14 @@
+
+Simple Bank System README
+Welcome to the Simple Bank System! This minimalistic system is designed to facilitate basic banking operations, including account creation, deposits, withdrawals, and displaying account balances. This README file provides a quick guide to help you understand the system's features.
+
+
+Features
+1. Account Management
+Create customer accounts with a unique account number.
+Accounts store basic information, including the account holder's name and initial balance.
+2. Transactions
+Deposit funds into an account.
+Withdraw funds from an account.
+3. Display Balance
+View the current balance of an account.
